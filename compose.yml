@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+      - rails_storage:/rails/storage
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundle:
+  rails_storage:
