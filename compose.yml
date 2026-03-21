@@ -10,6 +10,14 @@ services:
     stdin_open: true
     tty: true
 
+  css:
+    build: .
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+    command: bin/rails tailwindcss:watch[poll]
+    tty: true
+
 volumes:
   bundle:
   rails_storage:
