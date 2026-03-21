@@ -14,8 +14,8 @@ RUN bundle install
 
 COPY . .
 
-# 本番イメージ内で Tailwind CSS をビルド
-RUN bin/rails tailwindcss:build
+# 本番イメージ内で Tailwind CSS をビルドし、アセットをコンパイル
+RUN RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 bin/rails tailwindcss:build assets:precompile
 
 RUN chmod +x docker-entrypoint.sh
 
