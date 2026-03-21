@@ -1,4 +1,2 @@
-User.find_or_create_by!(email_address: "admin@example.com") do |user|
-  user.password = "password123"
-  user.password_confirmation = "password123"
-end
+# ユーザーは fly ssh console から手動で作成してください。
+# fly ssh console -C 'bin/rails runner "User.create!(email_address: \"you@example.com\", password: \"...\")"'
