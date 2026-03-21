@@ -1,0 +1,17 @@
+# 本番用 compose
+# 使い方: docker compose -f compose.prod.yml up -d
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - rails_storage:/rails/storage    # SQLite / Active Storage の永続化
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      RAILS_LOG_TO_STDOUT: "true"
+    restart: unless-stopped
+
+volumes:
+  rails_storage:

@@ -1,12 +1,14 @@
+# 開発用 compose
+# 使い方: docker compose up
 services:
   web:
     build: .
     ports:
       - "3000:3000"
     volumes:
-      - .:/rails
-      - bundle:/usr/local/bundle
-      - rails_storage:/rails/storage
+      - .:/rails                        # ソースをマウント（ホットリロード用）
+      - bundle:/usr/local/bundle        # bundle キャッシュ
+      - rails_storage:/rails/storage    # SQLite / Active Storage 保存先
     stdin_open: true
     tty: true
 

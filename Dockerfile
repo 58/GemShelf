@@ -14,6 +14,9 @@ RUN bundle install
 
 COPY . .
 
+# 本番イメージ内で Tailwind CSS をビルド
+RUN bin/rails tailwindcss:build
+
 RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 3000
